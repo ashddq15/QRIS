@@ -32,7 +32,7 @@ public function qris()
         $transactionid = 'INV-' . time();
         $abc = $clientId . $systrace . $clientId . $sharedkey; //(clientId + systrace when SignOn + dpMallId + sharedkey)
         $wordscheckstatus = hash_hmac('sha1', $abc, $secretKey, false);
-        $urlcheckstatus = 'https://staging.doku.com/dokupay/h2h/generateQrAspi?clientId=' . $clientId . '&accessToken=' . $accesstoken . '&dpMallId=' . $clientId . '&words=' . $wordscheckstatus . '&version=3.0&terminalId=A01&amount=' . $amount . '&postalCode=99999&transactionId=' . $transactionid . '&feeType=1';
+        $urlcheckstatus = 'https://staging.doku.com/dokupay/h2h/generateQris?clientId=' . $clientId . '&accessToken=' . $accesstoken . '&dpMallId=' . $clientId . '&words=' . $wordscheckstatus . '&version=3.0&terminalId=A01&amount=' . $amount . '&postalCode=99999&feeType=1';
         $curl = curl_init();
         curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, 0);
         curl_setopt_array($curl, array(
